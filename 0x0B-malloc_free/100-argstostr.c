@@ -1,98 +1,87 @@
-u
-}
-str[k] = '\n';
-
-
-
-return (str)
-
-  
-Task 5
-
 #include "main.h"
 
 #include <stdlib.h>
 
 /**
 
- * argstostr - concatenates all the arguments of a program.
+* argstostr - concatenates all the arguments of a program.
 
- * @ac: argument count.
+* @ac: argument count.
 
- * @av: argument vector.
+* @av: argument vector.
 
- *
+*
 
- * Return: pointer of an array of char
+* Return: pointer of an array of char
 
- */
+*/
 
 char *argstostr(int ac, char **av)
 
 {
 
-	char *aout;
+char *aout;
 
-	int c, i, j, ia;
+int c, i, j, ia;
 
-	if (ac == 0)
+if (ac == 0)
 
-		return (NULL);
+return (NULL);
 
-	for (c = i = 0; i < ac; i++)
+for (c = i = 0; i < ac; i++)
 
-         {
+{
 
-		if (av[i] == NULL)
+if (av[i] == NULL)
 
-			return (NULL);
+return (NULL);
 
-		for (j = 0; av[i][j] != '\0'; j++)
+for (j = 0; av[i][j] != '\0'; j++)
 
-			c++;
+c++;
 
-		c++;
+c++;
 
-	}
+}
 
-		aout = malloc((c + 1) * sizeof(char));
+aout = malloc((c + 1) * sizeof(char));
 
-		if (aout == NULL)
+if (aout == NULL)
 
-		{
+{
 
-			free(aout);
+free(aout);
 
-			return (NULL);
+return (NULL);
 
-		}
+}
 
-		for (i = j = ia = 0; ia < c; j++, ia++)
+for (i = j = ia = 0; ia < c; j++, ia++)
 
-		{
+{
 
-			if (av[i][j] == '\0')
+if (av[i][j] == '\0')
 
-			{
+{
 
-				aout[ia] = '\n';
+aout[ia] = '\n';
 
-				i++;
+i++;
 
-				ia++;
+ia++;
 
-				j = 0;
+j = 0;
 
-			}
+}
 
-			if (ia < c - 1)
+if (ia < c - 1)
 
-				aout[ia] = av[i][j];
+aout[ia] = av[i][j];
 
-		}
+}
 
-		aout[ia] = '\0';
+aout[ia] = '\0';
 
-	return (aout);
+return (aout);
 
 }
