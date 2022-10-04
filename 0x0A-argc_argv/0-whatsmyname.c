@@ -1,34 +1,16 @@
-#include <stdlib.h>
-#include "main.h"
+#include <stdio.h>
+#include "holberton.h"
 
 /**
-* *create_array - creates an array of chars,
-* and initializes it with a specific char
-* @size: size of the array to create
-* @c: char to initialize the array c
-*
-* Return: pointer to the array (Success), NULL (Error)
-*/
-char *create_array(unsigned int size, char c)
+ * main - prints the name of the program
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: Always 0 (Success)
+ */
+int main(int argc __attribute__((unused)), char *argv[])
 {
-char *p;
-unsigned int i = 0;
+	printf("%s\n", *argv);
 
-if (size == 0)
-return (NULL);
-
-p = (char *) malloc(sizeof(char) * size);
-
-if (p == NULL)
-return (0);
-
-while (i < size)
-{
-*(p + i) = c;
-i++;
-}
-
-*(p + i) = '\0';
-
-return (p);
+	return (0);
 }
