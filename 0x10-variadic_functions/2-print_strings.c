@@ -1,13 +1,33 @@
-section     .text
-global      main
+#include "variadic_functions.h"
 
-main:
-mov     edx,len
-mov     ecx,msg
-mov     ebx,1
-mov     eax,4
-int     0x80
+/**
+ * print_strings - prints strings
+ * @separator: separator between strings
+ * @n: number of arguments
+ */
+void print_strings(const char *separator, const unsigned int n, ...)
+{
+	unsigned int i;
+	char *str;
 
-section     .data
-msg     db  'Hello, Holberton',0xa
-len     equ $ - msg
+	va_list list;
+
+	va_start(list, n);
+
+	for (i = 0; i < n; i++)
+	{
+		str = va_arg(list, char *);
+		if (!str)
+			str = "(nil)";
+		if (!separator)
+			printf("%s", str);
+		else if (separator && i == 0)
+			printf("%s", str);
+		else
+			printf("%s%s", separator, str);
+	}
+
+	printf("\n");
+
+	va_end(list);
+}
