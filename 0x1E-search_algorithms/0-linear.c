@@ -4,25 +4,25 @@
 
 /**
  * linear_search - searches for a value in an array of integers
- * @arr: a pointer to the first element of the array
- * @n: number of elements in array
+ * @array: a pointer to the first element of the array
+ * @n: number of elements in arrayay
  * @x: the value to search for
  *
  * Return: Always result
  */
 
-int linear_search(int *arr, size_t n, int x)
+int linear_search(int *array, size_t n, int x)
 {
 	size_t result = 0;
 
-	if (arr == NULL)
+	if (array == NULL)
 	{
 		return (-1);
 	}
 	while (result < n)
 	{
-		printf("Value checked arr[%ld] = [%d]\n", result, arr[result]);
-		if (arr[result] == x)
+		printf("Value checked array[%ld] = [%d]\n", result, array[result]);
+		if (array[result] == x)
 		{
 			break;
 		}
